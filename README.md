@@ -1,13 +1,13 @@
 # Quantum neural networks for wind power prediction
 
 [![CI](https://github.com/batuhanhangun/qnn-wind-prediction/actions/workflows/ci.yml/badge.svg)](https://github.com/batuhanhangun/qnn-wind-prediction/actions/workflows/ci.yml)
-[![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI.svg)](https://doi.org/ZENODO_DOI)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23111531.svg)](https://doi.org/10.5281/zenodo.23111531)
 
 Code and archived results for the paper
 
 > B. Hangun, O. Eyecioglu, M. Ali, O. Altun, K. Kayisli. *Quantum Neural Networks for Wind
-> Power Prediction: A Benchmark Against Classical Machine Learning Models.* Quantum
-> Information Processing. DOI: PAPER_DOI
+> Power Prediction: A Benchmark Against Classical Machine Learning Models.* Submitted to
+> Quantum Information Processing.
 
 Six 4-qubit QNNs (Qiskit 2.3.0, Qiskit Machine Learning 0.9.0) with the regression target
 scaled to [-1, 1] (QNN-1 to QNN-6) or [0, 1] (QNN-1u to QNN-6u), against 11 classical and deep

@@ -19,12 +19,16 @@ authors:
   - given-names: Korhan
     family-names: Kayisli
     affiliation: Gazi University
+version: 1.0.0
+doi: 10.5281/zenodo.23111531
+date-released: 2026-10-03
 license: MIT
 repository-code: "https://github.com/batuhanhangun/qnn-wind-prediction"
 preferred-citation:
   type: article
   title: "Quantum Neural Networks for Wind Power Prediction: A Benchmark Against Classical Machine Learning Models"
   journal: "Quantum Information Processing"
+  status: submitted
   authors:
     - given-names: Batuhan
       family-names: Hangun
