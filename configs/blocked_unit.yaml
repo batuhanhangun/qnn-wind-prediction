@@ -1,0 +1,15 @@
+# Blocked protocol, QNN-1u to QNN-6u (target scaled to [0, 1]),
+# 6 configurations x 4 N x 6 folds x 5 seeds = 720 runs. Results, logs, and task files go to
+# their own subtree of the run directory.
+base: readout_variants.yaml
+
+paths:
+  results: ${QNNWIND_SCRATCH:-.}/results/blocked_unit
+  logs: ${QNNWIND_SCRATCH:-.}/logs/blocked_unit
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks/blocked_unit
+
+models:
+  classical: []
+  deep: []
+  mlp_pm: []
+  qnn: [QNN-1u, QNN-2u, QNN-3u, QNN-4u, QNN-5u, QNN-6u]

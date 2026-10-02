@@ -1,0 +1,35 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Blocked folds with buffers of B = 72 rows: row ranges, and mean and maximum power and wind speed per block.}
+\label{tab:t1b}
+\begin{tabular}{rllrrrrr}
+\toprule
+Fold & Block & Rows & Size & $\bar P$ (kW) & $P_{\max}$ (kW) & $\bar v$ (m/s) & $v_{\max}$ (m/s) \\
+\midrule
+0 & train pool & 1352-4463 & 3112 & 796.9 & 2033.1 & 9.33 & 21.07 \\
+0 & validation & 816-1279 & 464 & 243.4 & 1725.9 & 6.08 & 13.41 \\
+0 & test & 0-743 & 744 & 313.3 & 2018.3 & 6.88 & 17.45 \\
+\midrule
+1 & train pool & 0-135; 1560-4463 & 3040 & 727.5 & 2033.1 & 8.88 & 21.07 \\
+1 & validation & 208-671 & 464 & 385.8 & 2018.3 & 7.36 & 17.45 \\
+1 & test & 744-1487 & 744 & 530.7 & 2030.2 & 7.91 & 20.73 \\
+\midrule
+2 & train pool & 0-879; 2304-4463 & 3040 & 723.8 & 2033.1 & 8.91 & 21.07 \\
+2 & validation & 952-1415 & 464 & 291.2 & 1471.5 & 6.74 & 12.06 \\
+2 & test & 1488-2231 & 744 & 675.2 & 2026.7 & 9.05 & 19.83 \\
+\midrule
+3 & train pool & 0-1623; 3048-4463 & 3040 & 694.6 & 2030.5 & 8.87 & 21.07 \\
+3 & validation & 1696-2159 & 464 & 362.3 & 1878.8 & 6.93 & 13.76 \\
+3 & test & 2232-2975 & 744 & 813.8 & 2033.1 & 9.20 & 20.13 \\
+\midrule
+4 & train pool & 0-2367; 3792-4463 & 3040 & 665.6 & 2030.5 & 8.76 & 21.07 \\
+4 & validation & 2440-2903 & 464 & 1226.1 & 2033.1 & 11.50 & 20.13 \\
+4 & test & 2976-3719 & 744 & 325.8 & 1514.2 & 6.49 & 12.54 \\
+\midrule
+5 & train pool & 0-3111 & 3112 & 563.3 & 2033.1 & 8.14 & 20.73 \\
+5 & validation & 3184-3647 & 464 & 260.7 & 1283.7 & 5.93 & 11.75 \\
+5 & test & 3720-4463 & 744 & 1340.7 & 2030.5 & 12.38 & 21.07 \\
+\bottomrule
+\end{tabular}
+\end{table}

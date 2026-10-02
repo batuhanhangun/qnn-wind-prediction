@@ -1,0 +1,232 @@
+\begin{longtable}{lrrp{0.55\linewidth}r}
+\caption{Hyperparameters selected by Optuna TPE (30 trials, seed-0 training subset) per model, N, and fold, with the best validation RMSE (kW).}\label{tab:t7} \\
+\toprule
+Model & N & Fold & Selected hyperparameters & Val. RMSE \\
+\midrule
+\endfirsthead
+\toprule
+Model & N & Fold & Selected hyperparameters & Val. RMSE \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+kNN & 750 & 0 & n\_neighbors=17, p=2, weights=distance & 217.7 \\
+kNN & 750 & 1 & n\_neighbors=1, p=1, weights=uniform & 334.8 \\
+kNN & 750 & 2 & n\_neighbors=4, p=2, weights=distance & 215.9 \\
+kNN & 750 & 3 & n\_neighbors=36, p=2, weights=distance & 141.2 \\
+kNN & 750 & 4 & n\_neighbors=7, p=1, weights=distance & 199.2 \\
+kNN & 750 & 5 & n\_neighbors=1, p=1, weights=uniform & 127.9 \\
+DTR & 750 & 0 & max\_depth=None, min\_samples\_leaf=12, min\_samples\_split=15 & 47.0 \\
+DTR & 750 & 1 & max\_depth=2, min\_samples\_leaf=50, min\_samples\_split=7 & 172.9 \\
+DTR & 750 & 2 & max\_depth=22, min\_samples\_leaf=7, min\_samples\_split=8 & 76.4 \\
+DTR & 750 & 3 & max\_depth=None, min\_samples\_leaf=33, min\_samples\_split=26 & 106.0 \\
+DTR & 750 & 4 & max\_depth=None, min\_samples\_leaf=21, min\_samples\_split=3 & 196.9 \\
+DTR & 750 & 5 & max\_depth=None, min\_samples\_leaf=6, min\_samples\_split=2 & 57.4 \\
+SVR & 750 & 0 & C=139, epsilon=0.00392, gamma=2.02 & 49.0 \\
+SVR & 750 & 1 & C=8.01, epsilon=0.025, gamma=1.29 & 166.7 \\
+SVR & 750 & 2 & C=0.862, epsilon=0.00645, gamma=0.719 & 54.2 \\
+SVR & 750 & 3 & C=128, epsilon=0.0111, gamma=0.348 & 103.7 \\
+SVR & 750 & 4 & C=28.3, epsilon=0.00725, gamma=0.818 & 182.3 \\
+SVR & 750 & 5 & C=15.5, epsilon=0.0327, gamma=0.904 & 41.5 \\
+XGBoost & 750 & 0 & colsample\_bytree=0.855, learning\_rate=0.0845, max\_depth=5, min\_child\_weight=17.3, reg\_lambda=0.0289, subsample=0.548 & 62.6 \\
+XGBoost & 750 & 1 & colsample\_bytree=0.802, learning\_rate=0.0438, max\_depth=2, min\_child\_weight=2.9, reg\_lambda=0.00545, subsample=0.863 & 242.2 \\
+XGBoost & 750 & 2 & colsample\_bytree=0.857, learning\_rate=0.0175, max\_depth=9, min\_child\_weight=10.4, reg\_lambda=3.03, subsample=0.539 & 70.0 \\
+XGBoost & 750 & 3 & colsample\_bytree=0.911, learning\_rate=0.117, max\_depth=2, min\_child\_weight=2.3, reg\_lambda=0.00741, subsample=0.873 & 102.5 \\
+XGBoost & 750 & 4 & colsample\_bytree=0.815, learning\_rate=0.115, max\_depth=2, min\_child\_weight=4.62, reg\_lambda=0.00437, subsample=0.996 & 188.9 \\
+XGBoost & 750 & 5 & colsample\_bytree=0.843, learning\_rate=0.0234, max\_depth=3, min\_child\_weight=5.73, reg\_lambda=6.18, subsample=0.609 & 40.6 \\
+LightGBM & 750 & 0 & colsample\_bytree=0.927, learning\_rate=0.065, min\_child\_samples=81, num\_leaves=122, subsample=0.63 & 44.8 \\
+LightGBM & 750 & 1 & colsample\_bytree=0.932, learning\_rate=0.133, min\_child\_samples=51, num\_leaves=109, subsample=0.929 & 176.6 \\
+LightGBM & 750 & 2 & colsample\_bytree=0.938, learning\_rate=0.043, min\_child\_samples=33, num\_leaves=60, subsample=0.508 & 51.0 \\
+LightGBM & 750 & 3 & colsample\_bytree=0.927, learning\_rate=0.065, min\_child\_samples=81, num\_leaves=122, subsample=0.63 & 101.8 \\
+LightGBM & 750 & 4 & colsample\_bytree=0.897, learning\_rate=0.0676, min\_child\_samples=14, num\_leaves=100, subsample=0.731 & 186.7 \\
+LightGBM & 750 & 5 & colsample\_bytree=0.929, learning\_rate=0.0124, min\_child\_samples=49, num\_leaves=41, subsample=0.628 & 39.4 \\
+MLP & 750 & 0 & activation=relu, batch\_size=64, lr=0.000643, n\_layers=3, weight\_decay=2.33e-06, width=64 & 46.0 \\
+MLP & 750 & 1 & activation=tanh, batch\_size=128, lr=0.00522, n\_layers=3, weight\_decay=2.39e-05, width=128 & 150.0 \\
+MLP & 750 & 2 & activation=tanh, batch\_size=128, lr=0.0041, n\_layers=3, weight\_decay=1.34e-05, width=16 & 43.2 \\
+MLP & 750 & 3 & activation=tanh, batch\_size=32, lr=0.00221, n\_layers=2, weight\_decay=0.000889, width=128 & 99.8 \\
+MLP & 750 & 4 & activation=relu, batch\_size=128, lr=0.00513, n\_layers=3, weight\_decay=1.32e-06, width=64 & 179.4 \\
+MLP & 750 & 5 & activation=relu, batch\_size=32, lr=0.00491, n\_layers=3, weight\_decay=2.16e-05, width=16 & 32.6 \\
+LSTM & 750 & 0 & batch\_size=32, d\_token=32, dropout=0.00689, hidden\_size=16, lr=0.002, n\_layers=1, weight\_decay=6.63e-06 & 43.5 \\
+LSTM & 750 & 1 & batch\_size=32, d\_token=8, dropout=0.0448, hidden\_size=8, lr=0.00272, n\_layers=2, weight\_decay=1.11e-06 & 142.2 \\
+LSTM & 750 & 2 & batch\_size=128, d\_token=16, dropout=0.177, hidden\_size=16, lr=0.00923, n\_layers=1, weight\_decay=3.09e-05 & 42.5 \\
+LSTM & 750 & 3 & batch\_size=32, d\_token=32, dropout=0.183, hidden\_size=32, lr=0.00294, n\_layers=1, weight\_decay=0.00078 & 99.4 \\
+LSTM & 750 & 4 & batch\_size=32, d\_token=8, dropout=0.0072, hidden\_size=32, lr=0.00313, n\_layers=2, weight\_decay=1.49e-06 & 178.8 \\
+LSTM & 750 & 5 & batch\_size=64, d\_token=32, dropout=0.293, hidden\_size=8, lr=0.00398, n\_layers=1, weight\_decay=0.000105 & 30.7 \\
+GRU & 750 & 0 & batch\_size=64, d\_token=32, dropout=0.00859, hidden\_size=8, lr=0.00996, n\_layers=1, weight\_decay=2.85e-05 & 45.3 \\
+GRU & 750 & 1 & batch\_size=32, d\_token=32, dropout=0.198, hidden\_size=16, lr=0.00445, n\_layers=2, weight\_decay=1.75e-05 & 140.6 \\
+GRU & 750 & 2 & batch\_size=64, d\_token=32, dropout=0.197, hidden\_size=8, lr=0.00672, n\_layers=1, weight\_decay=7.89e-05 & 42.3 \\
+GRU & 750 & 3 & batch\_size=128, d\_token=8, dropout=0.218, hidden\_size=16, lr=0.00731, n\_layers=1, weight\_decay=1.28e-06 & 100.8 \\
+GRU & 750 & 4 & batch\_size=32, d\_token=32, dropout=0.153, hidden\_size=8, lr=0.00403, n\_layers=1, weight\_decay=0.000363 & 179.9 \\
+GRU & 750 & 5 & batch\_size=128, d\_token=8, dropout=0.0977, hidden\_size=16, lr=0.00998, n\_layers=1, weight\_decay=1.73e-06 & 34.0 \\
+Transformer & 750 & 0 & batch\_size=128, d\_token=16, dim\_feedforward=64, dropout=0.0124, lr=0.000421, n\_heads=4, n\_layers=1, weight\_decay=1.09e-06 & 45.5 \\
+Transformer & 750 & 1 & batch\_size=32, d\_token=64, dim\_feedforward=128, dropout=0.136, lr=0.00823, n\_heads=2, n\_layers=1, weight\_decay=6.08e-05 & 118.7 \\
+Transformer & 750 & 2 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.0582, lr=0.00421, n\_heads=2, n\_layers=1, weight\_decay=0.000216 & 47.8 \\
+Transformer & 750 & 3 & batch\_size=32, d\_token=16, dim\_feedforward=128, dropout=0.106, lr=0.00352, n\_heads=4, n\_layers=2, weight\_decay=0.000456 & 95.5 \\
+Transformer & 750 & 4 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.0509, lr=0.00175, n\_heads=2, n\_layers=1, weight\_decay=0.000206 & 176.9 \\
+Transformer & 750 & 5 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.0755, lr=0.00594, n\_heads=2, n\_layers=2, weight\_decay=0.000488 & 29.4 \\
+\midrule
+kNN & 1500 & 0 & n\_neighbors=1, p=2, weights=distance & 199.5 \\
+kNN & 1500 & 1 & n\_neighbors=3, p=1, weights=distance & 285.9 \\
+kNN & 1500 & 2 & n\_neighbors=3, p=2, weights=distance & 225.2 \\
+kNN & 1500 & 3 & n\_neighbors=19, p=2, weights=distance & 137.1 \\
+kNN & 1500 & 4 & n\_neighbors=14, p=1, weights=distance & 195.8 \\
+kNN & 1500 & 5 & n\_neighbors=2, p=1, weights=distance & 98.8 \\
+DTR & 1500 & 0 & max\_depth=24, min\_samples\_leaf=15, min\_samples\_split=32 & 49.7 \\
+DTR & 1500 & 1 & max\_depth=2, min\_samples\_leaf=39, min\_samples\_split=42 & 173.8 \\
+DTR & 1500 & 2 & max\_depth=20, min\_samples\_leaf=10, min\_samples\_split=9 & 68.8 \\
+DTR & 1500 & 3 & max\_depth=None, min\_samples\_leaf=25, min\_samples\_split=31 & 100.5 \\
+DTR & 1500 & 4 & max\_depth=None, min\_samples\_leaf=19, min\_samples\_split=28 & 199.4 \\
+DTR & 1500 & 5 & max\_depth=5, min\_samples\_leaf=38, min\_samples\_split=33 & 67.7 \\
+SVR & 1500 & 0 & C=7.04, epsilon=0.0231, gamma=2.27 & 53.6 \\
+SVR & 1500 & 1 & C=22.9, epsilon=0.0342, gamma=1.33 & 177.7 \\
+SVR & 1500 & 2 & C=0.862, epsilon=0.00645, gamma=0.719 & 55.9 \\
+SVR & 1500 & 3 & C=128, epsilon=0.0111, gamma=0.348 & 103.3 \\
+SVR & 1500 & 4 & C=43.8, epsilon=0.00124, gamma=2.28 & 181.0 \\
+SVR & 1500 & 5 & C=4.27, epsilon=0.0306, gamma=1.2 & 36.1 \\
+XGBoost & 1500 & 0 & colsample\_bytree=0.979, learning\_rate=0.158, max\_depth=2, min\_child\_weight=10.1, reg\_lambda=0.0119, subsample=0.925 & 67.7 \\
+XGBoost & 1500 & 1 & colsample\_bytree=0.838, learning\_rate=0.0558, max\_depth=4, min\_child\_weight=2.58, reg\_lambda=0.00105, subsample=0.783 & 225.0 \\
+XGBoost & 1500 & 2 & colsample\_bytree=0.877, learning\_rate=0.02, max\_depth=9, min\_child\_weight=1.95, reg\_lambda=6.83, subsample=0.728 & 71.3 \\
+XGBoost & 1500 & 3 & colsample\_bytree=0.892, learning\_rate=0.192, max\_depth=2, min\_child\_weight=7.08, reg\_lambda=0.00611, subsample=0.976 & 103.0 \\
+XGBoost & 1500 & 4 & colsample\_bytree=0.976, learning\_rate=0.212, max\_depth=2, min\_child\_weight=13.3, reg\_lambda=1.8, subsample=0.916 & 189.0 \\
+XGBoost & 1500 & 5 & colsample\_bytree=0.825, learning\_rate=0.0552, max\_depth=3, min\_child\_weight=16.2, reg\_lambda=0.00978, subsample=0.906 & 37.6 \\
+LightGBM & 1500 & 0 & colsample\_bytree=0.97, learning\_rate=0.00936, min\_child\_samples=100, num\_leaves=42, subsample=0.571 & 44.7 \\
+LightGBM & 1500 & 1 & colsample\_bytree=0.97, learning\_rate=0.106, min\_child\_samples=78, num\_leaves=70, subsample=0.513 & 175.0 \\
+LightGBM & 1500 & 2 & colsample\_bytree=0.918, learning\_rate=0.00287, min\_child\_samples=59, num\_leaves=75, subsample=0.569 & 50.3 \\
+LightGBM & 1500 & 3 & colsample\_bytree=0.905, learning\_rate=0.0171, min\_child\_samples=36, num\_leaves=106, subsample=0.998 & 99.1 \\
+LightGBM & 1500 & 4 & colsample\_bytree=0.889, learning\_rate=0.00805, min\_child\_samples=65, num\_leaves=121, subsample=0.722 & 187.6 \\
+LightGBM & 1500 & 5 & colsample\_bytree=0.976, learning\_rate=0.135, min\_child\_samples=69, num\_leaves=105, subsample=0.537 & 36.7 \\
+MLP & 1500 & 0 & activation=tanh, batch\_size=64, lr=0.00297, n\_layers=2, weight\_decay=2.19e-06, width=16 & 45.8 \\
+MLP & 1500 & 1 & activation=tanh, batch\_size=32, lr=0.000938, n\_layers=3, weight\_decay=4.18e-06, width=64 & 137.5 \\
+MLP & 1500 & 2 & activation=tanh, batch\_size=128, lr=0.00439, n\_layers=2, weight\_decay=5.13e-06, width=16 & 42.9 \\
+MLP & 1500 & 3 & activation=tanh, batch\_size=128, lr=0.0016, n\_layers=2, weight\_decay=0.000417, width=16 & 100.3 \\
+MLP & 1500 & 4 & activation=relu, batch\_size=128, lr=0.00788, n\_layers=3, weight\_decay=0.000719, width=16 & 178.5 \\
+MLP & 1500 & 5 & activation=relu, batch\_size=32, lr=0.00198, n\_layers=3, weight\_decay=2.51e-06, width=64 & 28.5 \\
+LSTM & 1500 & 0 & batch\_size=32, d\_token=8, dropout=0.00586, hidden\_size=32, lr=0.00335, n\_layers=1, weight\_decay=1.3e-06 & 45.6 \\
+LSTM & 1500 & 1 & batch\_size=32, d\_token=32, dropout=0.286, hidden\_size=32, lr=0.00219, n\_layers=2, weight\_decay=5.79e-06 & 141.8 \\
+LSTM & 1500 & 2 & batch\_size=32, d\_token=32, dropout=0.00583, hidden\_size=16, lr=0.000277, n\_layers=1, weight\_decay=1.14e-06 & 42.8 \\
+LSTM & 1500 & 3 & batch\_size=32, d\_token=8, dropout=0.0309, hidden\_size=32, lr=0.00375, n\_layers=1, weight\_decay=2.13e-05 & 100.2 \\
+LSTM & 1500 & 4 & batch\_size=32, d\_token=8, dropout=0.00292, hidden\_size=16, lr=0.00995, n\_layers=1, weight\_decay=9.73e-06 & 178.1 \\
+LSTM & 1500 & 5 & batch\_size=32, d\_token=32, dropout=0.196, hidden\_size=16, lr=0.00163, n\_layers=1, weight\_decay=0.000323 & 30.2 \\
+GRU & 1500 & 0 & batch\_size=32, d\_token=8, dropout=0.0365, hidden\_size=16, lr=0.00641, n\_layers=1, weight\_decay=5.84e-06 & 45.5 \\
+GRU & 1500 & 1 & batch\_size=32, d\_token=32, dropout=0.249, hidden\_size=16, lr=0.00517, n\_layers=2, weight\_decay=8.24e-06 & 141.2 \\
+GRU & 1500 & 2 & batch\_size=32, d\_token=32, dropout=0.0931, hidden\_size=16, lr=0.000112, n\_layers=1, weight\_decay=2.78e-05 & 43.0 \\
+GRU & 1500 & 3 & batch\_size=32, d\_token=8, dropout=0.0309, hidden\_size=32, lr=0.00375, n\_layers=1, weight\_decay=2.13e-05 & 99.3 \\
+GRU & 1500 & 4 & batch\_size=32, d\_token=8, dropout=0.00648, hidden\_size=32, lr=0.00654, n\_layers=2, weight\_decay=1.28e-06 & 177.2 \\
+GRU & 1500 & 5 & batch\_size=128, d\_token=8, dropout=0.0871, hidden\_size=16, lr=0.00633, n\_layers=1, weight\_decay=2.86e-06 & 30.8 \\
+Transformer & 1500 & 0 & batch\_size=32, d\_token=64, dim\_feedforward=64, dropout=0.134, lr=0.00362, n\_heads=4, n\_layers=2, weight\_decay=2.18e-05 & 44.9 \\
+Transformer & 1500 & 1 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.281, lr=0.00969, n\_heads=2, n\_layers=1, weight\_decay=0.000219 & 123.3 \\
+Transformer & 1500 & 2 & batch\_size=64, d\_token=16, dim\_feedforward=64, dropout=0.0776, lr=0.00715, n\_heads=2, n\_layers=1, weight\_decay=0.000634 & 45.8 \\
+Transformer & 1500 & 3 & batch\_size=128, d\_token=32, dim\_feedforward=64, dropout=0.068, lr=0.00214, n\_heads=2, n\_layers=2, weight\_decay=1.88e-05 & 95.7 \\
+Transformer & 1500 & 4 & batch\_size=64, d\_token=16, dim\_feedforward=64, dropout=0.0219, lr=0.000601, n\_heads=4, n\_layers=1, weight\_decay=1.54e-06 & 177.0 \\
+Transformer & 1500 & 5 & batch\_size=128, d\_token=16, dim\_feedforward=64, dropout=0.136, lr=0.0036, n\_heads=4, n\_layers=2, weight\_decay=4.11e-06 & 30.3 \\
+\midrule
+kNN & 2250 & 0 & n\_neighbors=1, p=2, weights=distance & 200.0 \\
+kNN & 2250 & 1 & n\_neighbors=2, p=1, weights=distance & 293.9 \\
+kNN & 2250 & 2 & n\_neighbors=3, p=2, weights=distance & 191.6 \\
+kNN & 2250 & 3 & n\_neighbors=24, p=2, weights=distance & 136.3 \\
+kNN & 2250 & 4 & n\_neighbors=19, p=1, weights=distance & 193.9 \\
+kNN & 2250 & 5 & n\_neighbors=2, p=1, weights=distance & 103.4 \\
+DTR & 2250 & 0 & max\_depth=None, min\_samples\_leaf=36, min\_samples\_split=10 & 48.4 \\
+DTR & 2250 & 1 & max\_depth=4, min\_samples\_leaf=24, min\_samples\_split=35 & 173.6 \\
+DTR & 2250 & 2 & max\_depth=10, min\_samples\_leaf=8, min\_samples\_split=20 & 66.3 \\
+DTR & 2250 & 3 & max\_depth=24, min\_samples\_leaf=15, min\_samples\_split=32 & 99.3 \\
+DTR & 2250 & 4 & max\_depth=20, min\_samples\_leaf=10, min\_samples\_split=9 & 187.3 \\
+DTR & 2250 & 5 & max\_depth=29, min\_samples\_leaf=2, min\_samples\_split=26 & 56.9 \\
+SVR & 2250 & 0 & C=19.8, epsilon=0.00303, gamma=0.724 & 53.0 \\
+SVR & 2250 & 1 & C=28.3, epsilon=0.00725, gamma=0.818 & 177.5 \\
+SVR & 2250 & 2 & C=0.292, epsilon=0.0139, gamma=0.644 & 57.6 \\
+SVR & 2250 & 3 & C=28.3, epsilon=0.00725, gamma=0.818 & 104.8 \\
+SVR & 2250 & 4 & C=1.47, epsilon=0.00598, gamma=4.43 & 181.6 \\
+SVR & 2250 & 5 & C=8.22, epsilon=0.0126, gamma=0.826 & 37.3 \\
+XGBoost & 2250 & 0 & colsample\_bytree=0.977, learning\_rate=0.0505, max\_depth=2, min\_child\_weight=5.15, reg\_lambda=0.00169, subsample=0.977 & 72.3 \\
+XGBoost & 2250 & 1 & colsample\_bytree=0.788, learning\_rate=0.0727, max\_depth=2, min\_child\_weight=8.09, reg\_lambda=0.01, subsample=0.831 & 229.3 \\
+XGBoost & 2250 & 2 & colsample\_bytree=0.751, learning\_rate=0.016, max\_depth=4, min\_child\_weight=8.2, reg\_lambda=0.0332, subsample=0.904 & 74.9 \\
+XGBoost & 2250 & 3 & colsample\_bytree=0.795, learning\_rate=0.165, max\_depth=2, min\_child\_weight=2.66, reg\_lambda=0.0258, subsample=0.859 & 102.1 \\
+XGBoost & 2250 & 4 & colsample\_bytree=0.912, learning\_rate=0.0778, max\_depth=2, min\_child\_weight=1.38, reg\_lambda=0.525, subsample=0.991 & 186.5 \\
+XGBoost & 2250 & 5 & colsample\_bytree=0.878, learning\_rate=0.0703, max\_depth=3, min\_child\_weight=6.81, reg\_lambda=0.00342, subsample=0.961 & 41.1 \\
+LightGBM & 2250 & 0 & colsample\_bytree=0.996, learning\_rate=0.145, min\_child\_samples=86, num\_leaves=124, subsample=0.652 & 44.3 \\
+LightGBM & 2250 & 1 & colsample\_bytree=0.981, learning\_rate=0.00838, min\_child\_samples=31, num\_leaves=5, subsample=0.83 & 176.7 \\
+LightGBM & 2250 & 2 & colsample\_bytree=0.892, learning\_rate=0.0413, min\_child\_samples=96, num\_leaves=125, subsample=0.608 & 51.6 \\
+LightGBM & 2250 & 3 & colsample\_bytree=0.988, learning\_rate=0.0503, min\_child\_samples=44, num\_leaves=116, subsample=0.855 & 98.6 \\
+LightGBM & 2250 & 4 & colsample\_bytree=0.937, learning\_rate=0.033, min\_child\_samples=98, num\_leaves=116, subsample=0.746 & 185.8 \\
+LightGBM & 2250 & 5 & colsample\_bytree=0.927, learning\_rate=0.0915, min\_child\_samples=100, num\_leaves=74, subsample=0.656 & 35.9 \\
+MLP & 2250 & 0 & activation=tanh, batch\_size=64, lr=0.00297, n\_layers=2, weight\_decay=2.19e-06, width=16 & 45.0 \\
+MLP & 2250 & 1 & activation=relu, batch\_size=32, lr=0.00675, n\_layers=1, weight\_decay=2.55e-06, width=64 & 138.3 \\
+MLP & 2250 & 2 & activation=tanh, batch\_size=32, lr=0.00286, n\_layers=2, weight\_decay=0.000396, width=128 & 45.5 \\
+MLP & 2250 & 3 & activation=tanh, batch\_size=32, lr=0.00161, n\_layers=3, weight\_decay=1.64e-06, width=128 & 96.1 \\
+MLP & 2250 & 4 & activation=relu, batch\_size=128, lr=0.00892, n\_layers=3, weight\_decay=7.95e-06, width=16 & 177.4 \\
+MLP & 2250 & 5 & activation=relu, batch\_size=128, lr=0.00866, n\_layers=2, weight\_decay=2.2e-06, width=64 & 28.0 \\
+LSTM & 2250 & 0 & batch\_size=32, d\_token=16, dropout=0.114, hidden\_size=32, lr=0.00347, n\_layers=1, weight\_decay=1.09e-05 & 44.3 \\
+LSTM & 2250 & 1 & batch\_size=32, d\_token=8, dropout=0.0449, hidden\_size=32, lr=0.00842, n\_layers=2, weight\_decay=4.15e-06 & 133.3 \\
+LSTM & 2250 & 2 & batch\_size=32, d\_token=32, dropout=0.257, hidden\_size=64, lr=0.00118, n\_layers=1, weight\_decay=0.000283 & 42.8 \\
+LSTM & 2250 & 3 & batch\_size=32, d\_token=8, dropout=0.000725, hidden\_size=32, lr=0.00379, n\_layers=2, weight\_decay=1.65e-06 & 95.6 \\
+LSTM & 2250 & 4 & batch\_size=32, d\_token=8, dropout=0.0639, hidden\_size=64, lr=0.000689, n\_layers=2, weight\_decay=1.36e-05 & 177.4 \\
+LSTM & 2250 & 5 & batch\_size=128, d\_token=8, dropout=0.197, hidden\_size=32, lr=0.00871, n\_layers=1, weight\_decay=0.000143 & 32.6 \\
+GRU & 2250 & 0 & batch\_size=64, d\_token=8, dropout=0.0378, hidden\_size=16, lr=0.00576, n\_layers=1, weight\_decay=3.72e-06 & 43.9 \\
+GRU & 2250 & 1 & batch\_size=32, d\_token=32, dropout=0.115, hidden\_size=32, lr=0.00422, n\_layers=2, weight\_decay=7.52e-05 & 133.4 \\
+GRU & 2250 & 2 & batch\_size=32, d\_token=32, dropout=0.2, hidden\_size=16, lr=0.00123, n\_layers=2, weight\_decay=9.01e-06 & 42.3 \\
+GRU & 2250 & 3 & batch\_size=32, d\_token=16, dropout=0.0282, hidden\_size=32, lr=0.00204, n\_layers=1, weight\_decay=1.16e-06 & 98.3 \\
+GRU & 2250 & 4 & batch\_size=32, d\_token=8, dropout=0.0309, hidden\_size=32, lr=0.00375, n\_layers=1, weight\_decay=2.13e-05 & 177.5 \\
+GRU & 2250 & 5 & batch\_size=256, d\_token=16, dropout=0.189, hidden\_size=16, lr=0.00838, n\_layers=1, weight\_decay=5.77e-06 & 30.0 \\
+Transformer & 2250 & 0 & batch\_size=32, d\_token=64, dim\_feedforward=128, dropout=0.0545, lr=0.00281, n\_heads=4, n\_layers=2, weight\_decay=2e-05 & 45.7 \\
+Transformer & 2250 & 1 & batch\_size=64, d\_token=64, dim\_feedforward=32, dropout=0.244, lr=0.008, n\_heads=2, n\_layers=1, weight\_decay=1.13e-05 & 121.9 \\
+Transformer & 2250 & 2 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.0582, lr=0.00421, n\_heads=2, n\_layers=1, weight\_decay=0.000216 & 45.4 \\
+Transformer & 2250 & 3 & batch\_size=32, d\_token=64, dim\_feedforward=64, dropout=0.07, lr=0.000862, n\_heads=4, n\_layers=2, weight\_decay=2.91e-05 & 95.0 \\
+Transformer & 2250 & 4 & batch\_size=128, d\_token=64, dim\_feedforward=64, dropout=0.12, lr=0.00481, n\_heads=4, n\_layers=2, weight\_decay=0.000149 & 177.1 \\
+Transformer & 2250 & 5 & batch\_size=128, d\_token=64, dim\_feedforward=64, dropout=0.0694, lr=0.00292, n\_heads=4, n\_layers=2, weight\_decay=2.85e-05 & 28.1 \\
+\midrule
+kNN & 3000 & 0 & n\_neighbors=1, p=2, weights=uniform & 203.2 \\
+kNN & 3000 & 1 & n\_neighbors=2, p=1, weights=distance & 284.7 \\
+kNN & 3000 & 2 & n\_neighbors=3, p=2, weights=distance & 209.9 \\
+kNN & 3000 & 3 & n\_neighbors=36, p=2, weights=distance & 132.8 \\
+kNN & 3000 & 4 & n\_neighbors=29, p=1, weights=distance & 194.9 \\
+kNN & 3000 & 5 & n\_neighbors=3, p=1, weights=uniform & 106.4 \\
+DTR & 3000 & 0 & max\_depth=None, min\_samples\_leaf=31, min\_samples\_split=20 & 47.3 \\
+DTR & 3000 & 1 & max\_depth=2, min\_samples\_leaf=39, min\_samples\_split=42 & 174.4 \\
+DTR & 3000 & 2 & max\_depth=20, min\_samples\_leaf=12, min\_samples\_split=2 & 64.3 \\
+DTR & 3000 & 3 & max\_depth=None, min\_samples\_leaf=42, min\_samples\_split=35 & 100.7 \\
+DTR & 3000 & 4 & max\_depth=None, min\_samples\_leaf=45, min\_samples\_split=44 & 189.8 \\
+DTR & 3000 & 5 & max\_depth=None, min\_samples\_leaf=5, min\_samples\_split=31 & 56.7 \\
+SVR & 3000 & 0 & C=8.22, epsilon=0.0126, gamma=0.826 & 52.3 \\
+SVR & 3000 & 1 & C=28.3, epsilon=0.00725, gamma=0.818 & 178.0 \\
+SVR & 3000 & 2 & C=721, epsilon=0.0034, gamma=0.149 & 52.8 \\
+SVR & 3000 & 3 & C=1.43, epsilon=0.00265, gamma=1.07 & 102.1 \\
+SVR & 3000 & 4 & C=4.71, epsilon=0.00285, gamma=2.28 & 181.6 \\
+SVR & 3000 & 5 & C=0.281, epsilon=0.0123, gamma=2.3 & 35.0 \\
+XGBoost & 3000 & 0 & colsample\_bytree=0.975, learning\_rate=0.0915, max\_depth=2, min\_child\_weight=8.27, reg\_lambda=0.0129, subsample=0.933 & 67.1 \\
+XGBoost & 3000 & 1 & colsample\_bytree=0.794, learning\_rate=0.059, max\_depth=2, min\_child\_weight=9.43, reg\_lambda=0.0229, subsample=0.956 & 226.6 \\
+XGBoost & 3000 & 2 & colsample\_bytree=0.919, learning\_rate=0.0182, max\_depth=5, min\_child\_weight=17, reg\_lambda=8.04, subsample=0.851 & 76.7 \\
+XGBoost & 3000 & 3 & colsample\_bytree=0.81, learning\_rate=0.0162, max\_depth=2, min\_child\_weight=7.45, reg\_lambda=0.00975, subsample=0.867 & 103.8 \\
+XGBoost & 3000 & 4 & colsample\_bytree=0.902, learning\_rate=0.028, max\_depth=2, min\_child\_weight=2.93, reg\_lambda=0.00273, subsample=0.861 & 188.8 \\
+XGBoost & 3000 & 5 & colsample\_bytree=0.979, learning\_rate=0.0193, max\_depth=3, min\_child\_weight=8.71, reg\_lambda=0.00115, subsample=0.92 & 39.7 \\
+LightGBM & 3000 & 0 & colsample\_bytree=0.936, learning\_rate=0.168, min\_child\_samples=77, num\_leaves=78, subsample=0.748 & 44.1 \\
+LightGBM & 3000 & 1 & colsample\_bytree=0.983, learning\_rate=0.0179, min\_child\_samples=69, num\_leaves=5, subsample=0.861 & 176.9 \\
+LightGBM & 3000 & 2 & colsample\_bytree=0.884, learning\_rate=0.0548, min\_child\_samples=91, num\_leaves=34, subsample=0.754 & 51.2 \\
+LightGBM & 3000 & 3 & colsample\_bytree=0.902, learning\_rate=0.0295, min\_child\_samples=61, num\_leaves=84, subsample=0.529 & 100.8 \\
+LightGBM & 3000 & 4 & colsample\_bytree=0.981, learning\_rate=0.0143, min\_child\_samples=64, num\_leaves=113, subsample=0.509 & 186.6 \\
+LightGBM & 3000 & 5 & colsample\_bytree=0.967, learning\_rate=0.0088, min\_child\_samples=99, num\_leaves=120, subsample=0.512 & 37.5 \\
+MLP & 3000 & 0 & activation=tanh, batch\_size=32, lr=0.000646, n\_layers=2, weight\_decay=1.37e-05, width=16 & 45.0 \\
+MLP & 3000 & 1 & activation=tanh, batch\_size=64, lr=0.00778, n\_layers=2, weight\_decay=3.11e-05, width=16 & 142.3 \\
+MLP & 3000 & 2 & activation=tanh, batch\_size=256, lr=0.000552, n\_layers=3, weight\_decay=3.41e-05, width=32 & 44.5 \\
+MLP & 3000 & 3 & activation=tanh, batch\_size=64, lr=0.000964, n\_layers=2, weight\_decay=2.24e-06, width=64 & 98.8 \\
+MLP & 3000 & 4 & activation=relu, batch\_size=128, lr=0.00399, n\_layers=2, weight\_decay=0.00076, width=128 & 177.9 \\
+MLP & 3000 & 5 & activation=relu, batch\_size=32, lr=0.000465, n\_layers=3, weight\_decay=2.42e-05, width=64 & 26.7 \\
+LSTM & 3000 & 0 & batch\_size=32, d\_token=8, dropout=0.0149, hidden\_size=32, lr=0.00687, n\_layers=2, weight\_decay=2.27e-06 & 44.1 \\
+LSTM & 3000 & 1 & batch\_size=32, d\_token=32, dropout=0.0982, hidden\_size=16, lr=0.00837, n\_layers=1, weight\_decay=6.05e-06 & 142.0 \\
+LSTM & 3000 & 2 & batch\_size=128, d\_token=8, dropout=0.218, hidden\_size=16, lr=0.00731, n\_layers=1, weight\_decay=1.28e-06 & 43.2 \\
+LSTM & 3000 & 3 & batch\_size=32, d\_token=8, dropout=0.065, hidden\_size=32, lr=0.00404, n\_layers=2, weight\_decay=6.49e-06 & 98.7 \\
+LSTM & 3000 & 4 & batch\_size=32, d\_token=32, dropout=0.0056, hidden\_size=16, lr=0.0062, n\_layers=1, weight\_decay=1.72e-06 & 177.1 \\
+LSTM & 3000 & 5 & batch\_size=32, d\_token=8, dropout=0.222, hidden\_size=64, lr=0.00504, n\_layers=1, weight\_decay=0.000602 & 31.5 \\
+GRU & 3000 & 0 & batch\_size=64, d\_token=8, dropout=0.0378, hidden\_size=16, lr=0.00576, n\_layers=1, weight\_decay=3.72e-06 & 45.4 \\
+GRU & 3000 & 1 & batch\_size=128, d\_token=32, dropout=0.251, hidden\_size=16, lr=0.00586, n\_layers=2, weight\_decay=9.85e-06 & 137.8 \\
+GRU & 3000 & 2 & batch\_size=64, d\_token=16, dropout=0.294, hidden\_size=16, lr=0.00107, n\_layers=2, weight\_decay=1.85e-06 & 42.3 \\
+GRU & 3000 & 3 & batch\_size=32, d\_token=16, dropout=0.178, hidden\_size=32, lr=0.0016, n\_layers=1, weight\_decay=6.01e-06 & 96.7 \\
+GRU & 3000 & 4 & batch\_size=64, d\_token=8, dropout=0.0198, hidden\_size=32, lr=0.00732, n\_layers=2, weight\_decay=1.14e-05 & 177.5 \\
+GRU & 3000 & 5 & batch\_size=256, d\_token=8, dropout=0.162, hidden\_size=16, lr=0.00622, n\_layers=1, weight\_decay=2.4e-06 & 31.9 \\
+Transformer & 3000 & 0 & batch\_size=32, d\_token=64, dim\_feedforward=128, dropout=0.0697, lr=0.000138, n\_heads=4, n\_layers=2, weight\_decay=1.91e-05 & 44.6 \\
+Transformer & 3000 & 1 & batch\_size=64, d\_token=64, dim\_feedforward=128, dropout=0.24, lr=0.00643, n\_heads=2, n\_layers=2, weight\_decay=0.000674 & 121.0 \\
+Transformer & 3000 & 2 & batch\_size=128, d\_token=64, dim\_feedforward=64, dropout=0.0438, lr=0.00413, n\_heads=4, n\_layers=2, weight\_decay=3.7e-05 & 43.9 \\
+Transformer & 3000 & 3 & batch\_size=128, d\_token=64, dim\_feedforward=128, dropout=0.0714, lr=0.00583, n\_heads=2, n\_layers=2, weight\_decay=6.48e-06 & 95.4 \\
+Transformer & 3000 & 4 & batch\_size=32, d\_token=32, dim\_feedforward=64, dropout=0.186, lr=0.000896, n\_heads=4, n\_layers=1, weight\_decay=4.05e-05 & 177.6 \\
+Transformer & 3000 & 5 & batch\_size=128, d\_token=64, dim\_feedforward=128, dropout=0.047, lr=0.00271, n\_heads=4, n\_layers=1, weight\_decay=3.93e-05 & 28.2 \\
+\end{longtable}

@@ -1,0 +1,17 @@
+# Packages added on top of quantum_ml:v4, installed into the extras directory:
+# python -m pip install --no-cache-dir --no-deps --target <extras> -r requirements-extra.txt
+# Resolved for CPython 3.11 on manylinux x86_64 with v4_freeze.txt as constraints:
+# no package already in v4 changes version.
+lightgbm==4.7.0
+optuna==5.0.0
+pylatexenc==2.11
+pytest==9.1.1
+ruff==0.16.9
+# transitive dependencies introduced by the packages above
+alembic==1.20.0
+colorlog==6.12.0
+iniconfig==2.3.0
+mako==1.4.3
+narwhals==2.26.0
+pluggy==1.6.0
+sqlalchemy==2.1.0

@@ -1,0 +1,134 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Least-squares fits of time per objective evaluation = a N + b (runs passing the node-load filter). Per readout; the circuits are identical.}
+\label{tab:t5a}
+\begin{tabular}{llrrrrr}
+\toprule
+Readout & Config & Gates & a (s per sample) & b (s) & $R^2$ & Runs \\
+\midrule
+{[-1, 1]} & QNN-1 & 40 & 0.044 & 0.20 & 0.998 & 120 \\
+{[-1, 1]} & QNN-2 & 34 & 0.040 & -0.32 & 0.998 & 120 \\
+{[-1, 1]} & QNN-3 & 36 & 0.042 & -0.66 & 0.998 & 120 \\
+{[-1, 1]} & QNN-4 & 36 & 0.042 & -0.47 & 0.998 & 120 \\
+{[-1, 1]} & QNN-5 & 34 & 0.040 & -0.21 & 0.998 & 120 \\
+{[-1, 1]} & QNN-6 & 34 & 0.040 & 0.13 & 0.999 & 120 \\
+\midrule
+{[0, 1]} & QNN-1u & 40 & 0.044 & 0.78 & 0.998 & 120 \\
+{[0, 1]} & QNN-2u & 34 & 0.041 & -1.02 & 0.998 & 120 \\
+{[0, 1]} & QNN-3u & 36 & 0.042 & -0.45 & 0.997 & 120 \\
+{[0, 1]} & QNN-4u & 36 & 0.041 & 0.40 & 0.998 & 120 \\
+{[0, 1]} & QNN-5u & 34 & 0.041 & -0.90 & 0.998 & 120 \\
+{[0, 1]} & QNN-6u & 34 & 0.040 & -0.30 & 0.998 & 120 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Ratio of time per objective evaluation, QNN-1 (40 gates) over QNN-5 (34 gates) and QNN-1u over QNN-5u (the same circuits), paired by (fold, seed).}
+\label{tab:t5b}
+\begin{tabular}{lrrr}
+\toprule
+Pair & N & Pairs & Ratio \\
+\midrule
+QNN-1 / QNN-5 & 750 & 30 & $1.122 \pm 0.024$ \\
+QNN-1 / QNN-5 & 1500 & 30 & $1.122 \pm 0.024$ \\
+QNN-1 / QNN-5 & 2250 & 30 & $1.115 \pm 0.028$ \\
+QNN-1 / QNN-5 & 3000 & 30 & $1.115 \pm 0.031$ \\
+\midrule
+QNN-1u / QNN-5u & 750 & 30 & $1.125 \pm 0.029$ \\
+QNN-1u / QNN-5u & 1500 & 30 & $1.112 \pm 0.031$ \\
+QNN-1u / QNN-5u & 2250 & 30 & $1.126 \pm 0.024$ \\
+QNN-1u / QNN-5u & 3000 & 30 & $1.089 \pm 0.023$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Total QNN training time and objective evaluations (descriptive; not fitted).}
+\label{tab:t5c}
+\begin{tabular}{rlrrr}
+\toprule
+N & Config & Training time (h) & Evaluations & Runs \\
+\midrule
+750 & QNN-1 & $1.04 \pm 0.07$ & $109.4 \pm 7.4$ & 30 \\
+750 & QNN-2 & $0.71 \pm 0.13$ & $83.9 \pm 15.3$ & 30 \\
+750 & QNN-3 & $0.74 \pm 0.15$ & $83.4 \pm 17.7$ & 30 \\
+750 & QNN-4 & $0.76 \pm 0.21$ & $86.1 \pm 23.7$ & 30 \\
+750 & QNN-5 & $0.92 \pm 0.06$ & $109.4 \pm 7.4$ & 30 \\
+750 & QNN-6 & $0.79 \pm 0.15$ & $92.3 \pm 17.6$ & 30 \\
+750 & QNN-1u & $1.10 \pm 0.04$ & $115.6 \pm 3.9$ & 30 \\
+750 & QNN-2u & $0.97 \pm 0.09$ & $113.6 \pm 10.9$ & 30 \\
+750 & QNN-3u & $1.02 \pm 0.03$ & $115.6 \pm 3.0$ & 30 \\
+750 & QNN-4u & $1.04 \pm 0.04$ & $117.0 \pm 4.8$ & 30 \\
+750 & QNN-5u & $0.98 \pm 0.04$ & $115.6 \pm 3.9$ & 30 \\
+750 & QNN-6u & $0.99 \pm 0.03$ & $117.0 \pm 3.6$ & 30 \\
+\midrule
+1500 & QNN-1 & $2.03 \pm 0.18$ & $108.1 \pm 8.8$ & 30 \\
+1500 & QNN-2 & $1.39 \pm 0.25$ & $82.7 \pm 14.8$ & 30 \\
+1500 & QNN-3 & $1.44 \pm 0.30$ & $82.5 \pm 16.8$ & 30 \\
+1500 & QNN-4 & $1.48 \pm 0.40$ & $84.8 \pm 23.2$ & 30 \\
+1500 & QNN-5 & $1.81 \pm 0.14$ & $108.1 \pm 8.8$ & 30 \\
+1500 & QNN-6 & $1.51 \pm 0.31$ & $89.7 \pm 18.8$ & 30 \\
+1500 & QNN-1u & $2.17 \pm 0.09$ & $116.1 \pm 4.5$ & 30 \\
+1500 & QNN-2u & $1.87 \pm 0.23$ & $110.9 \pm 13.6$ & 30 \\
+1500 & QNN-3u & $2.00 \pm 0.07$ & $115.1 \pm 3.7$ & 30 \\
+1500 & QNN-4u & $2.05 \pm 0.12$ & $116.6 \pm 6.8$ & 30 \\
+1500 & QNN-5u & $1.95 \pm 0.08$ & $116.1 \pm 4.5$ & 30 \\
+1500 & QNN-6u & $1.96 \pm 0.10$ & $116.0 \pm 5.2$ & 30 \\
+\midrule
+2250 & QNN-1 & $3.07 \pm 0.22$ & $109.8 \pm 8.0$ & 30 \\
+2250 & QNN-2 & $2.05 \pm 0.40$ & $81.6 \pm 16.1$ & 30 \\
+2250 & QNN-3 & $2.17 \pm 0.44$ & $82.8 \pm 17.5$ & 30 \\
+2250 & QNN-4 & $2.20 \pm 0.56$ & $84.4 \pm 21.5$ & 30 \\
+2250 & QNN-5 & $2.75 \pm 0.20$ & $109.8 \pm 8.0$ & 30 \\
+2250 & QNN-6 & $2.28 \pm 0.43$ & $90.9 \pm 16.8$ & 30 \\
+2250 & QNN-1u & $3.26 \pm 0.13$ & $115.4 \pm 4.3$ & 30 \\
+2250 & QNN-2u & $2.83 \pm 0.29$ & $111.6 \pm 11.0$ & 30 \\
+2250 & QNN-3u & $3.05 \pm 0.13$ & $116.6 \pm 4.1$ & 30 \\
+2250 & QNN-4u & $3.02 \pm 0.16$ & $116.0 \pm 6.1$ & 30 \\
+2250 & QNN-5u & $2.89 \pm 0.12$ & $115.4 \pm 4.3$ & 30 \\
+2250 & QNN-6u & $3.01 \pm 0.15$ & $119.0 \pm 5.6$ & 30 \\
+\midrule
+3000 & QNN-1 & $4.03 \pm 0.45$ & $108.1 \pm 11.3$ & 30 \\
+3000 & QNN-2 & $2.77 \pm 0.58$ & $82.3 \pm 17.0$ & 30 \\
+3000 & QNN-3 & $2.90 \pm 0.62$ & $82.3 \pm 17.9$ & 30 \\
+3000 & QNN-4 & $2.99 \pm 0.75$ & $85.3 \pm 21.4$ & 30 \\
+3000 & QNN-5 & $3.62 \pm 0.39$ & $108.1 \pm 11.3$ & 30 \\
+3000 & QNN-6 & $3.03 \pm 0.57$ & $90.4 \pm 17.1$ & 30 \\
+3000 & QNN-1u & $4.30 \pm 0.15$ & $116.1 \pm 3.5$ & 30 \\
+3000 & QNN-2u & $3.91 \pm 0.38$ & $114.2 \pm 10.3$ & 30 \\
+3000 & QNN-3u & $4.01 \pm 0.22$ & $114.5 \pm 4.6$ & 30 \\
+3000 & QNN-4u & $4.08 \pm 0.14$ & $117.3 \pm 4.1$ & 30 \\
+3000 & QNN-5u & $3.95 \pm 0.12$ & $116.1 \pm 3.5$ & 30 \\
+3000 & QNN-6u & $3.96 \pm 0.12$ & $117.4 \pm 3.6$ & 30 \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize QNN-1u to QNN-6u use the circuits of QNN-1 to QNN-6 with the target min-max scaled to [0, 1] instead of [-1, 1].}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Node-load filter for the timing fits: runs with mean busy workers below 57.6 or without a node-load record are excluded.}
+\label{tab:t5d}
+\begin{tabular}{lrrrrr}
+\toprule
+Readout & N & QNN runs & Included & Excluded & No node load \\
+\midrule
+{[-1, 1]} & 750 & 180 & 180 & 0 & 0 \\
+{[-1, 1]} & 1500 & 180 & 180 & 0 & 0 \\
+{[-1, 1]} & 2250 & 180 & 180 & 0 & 0 \\
+{[-1, 1]} & 3000 & 180 & 180 & 0 & 0 \\
+\midrule
+{[0, 1]} & 750 & 180 & 180 & 0 & 0 \\
+{[0, 1]} & 1500 & 180 & 180 & 0 & 0 \\
+{[0, 1]} & 2250 & 180 & 180 & 0 & 0 \\
+{[0, 1]} & 3000 & 180 & 180 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

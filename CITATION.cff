@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper below."
+type: software
+title: "qnn-wind-prediction: quantum neural networks vs. classical models for wind power prediction"
+authors:
+  - given-names: Batuhan
+    family-names: Hangun
+    affiliation: Yildiz Technical University
+    orcid: "https://orcid.org/0000-0002-0271-6868"
+  - given-names: Onder
+    family-names: Eyecioglu
+    affiliation: Bolu Abant Izzet Baysal University
+  - given-names: Mehar
+    family-names: Ali
+    affiliation: Information Technology University
+  - given-names: Oguz
+    family-names: Altun
+    affiliation: Yildiz Technical University
+  - given-names: Korhan
+    family-names: Kayisli
+    affiliation: Gazi University
+license: MIT
+repository-code: "https://github.com/batuhanhangun/qnn-wind-prediction"
+preferred-citation:
+  type: article
+  title: "Quantum Neural Networks for Wind Power Prediction: A Benchmark Against Classical Machine Learning Models"
+  journal: "Quantum Information Processing"
+  authors:
+    - given-names: Batuhan
+      family-names: Hangun
+      affiliation: Yildiz Technical University
+      orcid: "https://orcid.org/0000-0002-0271-6868"
+    - given-names: Onder
+      family-names: Eyecioglu
+      affiliation: Bolu Abant Izzet Baysal University
+    - given-names: Mehar
+      family-names: Ali
+      affiliation: Information Technology University
+    - given-names: Oguz
+      family-names: Altun
+      affiliation: Yildiz Technical University
+    - given-names: Korhan
+      family-names: Kayisli
+      affiliation: Gazi University

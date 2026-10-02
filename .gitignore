@@ -1,0 +1,21 @@
+data/*
+!data/README.md
+# results/ holds the results package only; local run data never goes there
+results/*
+!results/README.md
+!results/manifest.json
+!results/primary/
+!results/blocked_unit/
+!results/random/
+results/*/raw/
+results/*/tuning/
+results/*/aggregated/
+__pycache__/
+.venv/
+logs/
+tasks/
+# Generated tables and figures (the reference copies are in paper/)
+outputs/
+
+# Local run directory (default of the scripts; see scripts/runs_dir.py)
+runs/

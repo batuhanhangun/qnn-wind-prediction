@@ -1,0 +1,172 @@
+# Full experiment configuration: blocked protocol, target scaled to [-1, 1]. Relative paths
+# are resolved against the project root. ${VAR} and ${VAR:-default} are expanded: the scripts
+# set QNNWIND_SCRATCH to the run directory (default runs/; on a cluster, set by the job
+# scripts).
+
+paths:
+  data: data/total_dataset.csv
+  results: ${QNNWIND_SCRATCH:-.}/results
+  logs: ${QNNWIND_SCRATCH:-.}/logs
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks
+  outputs: outputs
+
+data:
+  sha256: 5bc783670f61835114c4a0fecef90c075c1041b85a97ac294f8da5316a876ebc
+  n_rows: 4464
+  separator: ";"
+  feature_columns: [Temperature, Pressure, Theta, Velocity]
+  target_column: Power
+  wind_speed_column: Velocity
+
+inspect:
+  acf_lags: [1, 6, 12, 24, 72, 144]
+
+folds:
+  n_folds: 6
+  fold_size: 744
+  buffer: 72
+  validation_size: 464
+  run: [0, 1, 2, 3, 4, 5]
+
+sizes: [750, 1500, 2250, 3000]
+seeds: [0, 1, 2, 3, 4]
+
+scaling:
+  input_range: [0.0, 1.0]
+  target_range: [-1.0, 1.0]
+
+models:
+  classical: [LR, kNN, DTR, SVR, XGBoost, LightGBM]
+  deep: [MLP, LSTM, GRU, Transformer]
+  mlp_pm: [MLP-PM]
+  qnn: [QNN-1, QNN-2, QNN-3, QNN-4, QNN-5, QNN-6]
+
+qnn:
+  n_qubits: 4
+  feature_map_reps: 2
+  ansatz_reps: 2
+  observable: ZZZZ
+  entanglement:
+    QNN-1: full
+    QNN-2: linear
+    QNN-3: circular
+    QNN-4: sca
+    QNN-5: reverse_linear
+    QNN-6: pairwise
+  optimizer:
+    maxiter: 100
+    gtol: 1.0e-12
+
+mlp_pm:
+  hidden_units: 2
+  optimizer:
+    maxiter: 100
+    maxfun: 15000
+    ftol: 2.220446049250313e-15
+    gtol: 1.0e-12
+
+deep:
+  max_epochs: 500
+  patience: 30
+
+boosting:
+  n_estimators: 1000
+  early_stopping_rounds: 50
+
+tuning:
+  n_trials: 30
+  sampler_seed: 20250925
+  subset_seed: 0
+  # Search spaces. type: int | float | categorical | int_or_none.
+  # int_or_none samples a boolean "<name>_limited" first, then the integer if limited.
+  search_spaces:
+    kNN:
+      n_neighbors: {type: int, low: 1, high: 50}
+      weights: {type: categorical, choices: [uniform, distance]}
+      p: {type: categorical, choices: [1, 2]}
+    DTR:
+      max_depth: {type: int_or_none, low: 2, high: 30}
+      min_samples_leaf: {type: int, low: 1, high: 50}
+      min_samples_split: {type: int, low: 2, high: 50}
+    SVR:
+      C: {type: float, low: 1.0e-2, high: 1.0e+3, log: true}
+      epsilon: {type: float, low: 1.0e-3, high: 1.0e-1, log: true}
+      gamma: {type: float, low: 1.0e-3, high: 1.0e+1, log: true}
+    XGBoost:
+      max_depth: {type: int, low: 2, high: 10}
+      learning_rate: {type: float, low: 1.0e-3, high: 0.3, log: true}
+      subsample: {type: float, low: 0.5, high: 1.0}
+      colsample_bytree: {type: float, low: 0.5, high: 1.0}
+      min_child_weight: {type: float, low: 1.0, high: 20.0}
+      reg_lambda: {type: float, low: 1.0e-3, high: 10.0, log: true}
+    LightGBM:
+      num_leaves: {type: int, low: 4, high: 128}
+      learning_rate: {type: float, low: 1.0e-3, high: 0.3, log: true}
+      min_child_samples: {type: int, low: 5, high: 100}
+      subsample: {type: float, low: 0.5, high: 1.0}
+      colsample_bytree: {type: float, low: 0.5, high: 1.0}
+    MLP:
+      n_layers: {type: int, low: 1, high: 3}
+      width: {type: categorical, choices: [16, 32, 64, 128]}
+      activation: {type: categorical, choices: [relu, tanh]}
+      lr: {type: float, low: 1.0e-4, high: 1.0e-2, log: true}
+      weight_decay: {type: float, low: 1.0e-6, high: 1.0e-3, log: true}
+      batch_size: {type: categorical, choices: [32, 64, 128, 256]}
+    LSTM: &recurrent_space
+      d_token: {type: categorical, choices: [8, 16, 32]}
+      n_layers: {type: int, low: 1, high: 2}
+      hidden_size: {type: categorical, choices: [8, 16, 32, 64]}
+      dropout: {type: float, low: 0.0, high: 0.3}
+      lr: {type: float, low: 1.0e-4, high: 1.0e-2, log: true}
+      weight_decay: {type: float, low: 1.0e-6, high: 1.0e-3, log: true}
+      batch_size: {type: categorical, choices: [32, 64, 128, 256]}
+    GRU: *recurrent_space
+    Transformer:
+      d_token: {type: categorical, choices: [16, 32, 64]}
+      n_heads: {type: categorical, choices: [2, 4]}
+      n_layers: {type: int, low: 1, high: 2}
+      dim_feedforward: {type: categorical, choices: [32, 64, 128]}
+      dropout: {type: float, low: 0.0, high: 0.3}
+      lr: {type: float, low: 1.0e-4, high: 1.0e-2, log: true}
+      weight_decay: {type: float, low: 1.0e-6, high: 1.0e-3, log: true}
+      batch_size: {type: categorical, choices: [32, 64, 128, 256]}
+
+stats:
+  dm:
+    horizon: 1
+    hac_lag: 72  # fixed Bartlett lag; "auto" = floor(4 * (T / 100) ** (2 / 9))
+  # Stability score: evaluations 1..stability_window; SD and MS use evaluations
+  # after stability_start_eval (i.e. 11..E); shorter curves are padded with their final loss.
+  stability_window: 50
+  stability_start_eval: 10
+
+runtime:
+  threads_per_worker: 1
+  # W: worker processes per cluster node (launcher --cluster); all QNN runs use the same W.
+  # From the timing calibration on 128-core nodes (QNN-1, fold 5, N = 750): 1.625 ms/circuit
+  # at W = 1, 1.792 (+10.3%) at 32, 1.775 (+9.3%) at 64, 1.950 (+20.0%) at 128 -> W = 64.
+  workers: 64
+  # Task claiming across nodes: a worker holds a lock directory per task and touches
+  # its heartbeat file every lock_heartbeat_seconds; a lock whose heartbeat is older than
+  # lock_stale_seconds belongs to a killed job and is broken, so the task reruns.
+  lock_heartbeat_seconds: 30
+  lock_stale_seconds: 300
+  # Load keeper: in these groups, a worker that finds no unclaimed task while real
+  # tasks still run on its node runs filler QNN simulation (calibration.model, forward and
+  # backward on `batch` random samples per chunk; no results) until the node's last real
+  # task has finished. Filler counts as busy in the node load.
+  load_keeper:
+    groups: [qnn]
+    batch: 4
+
+# Timing calibration: a 5-iteration QNN-1 probe on fold 5 at N = 750, run
+# as W concurrent copies for each W; choose the largest W whose time per circuit is at most
+# max_slowdown above W = 1.
+calibration:
+  model: QNN-1
+  fold: 5
+  n_train: 750
+  seed: 0
+  maxiter: 5
+  workers: [1, 32, 64, 128]
+  max_slowdown: 0.10

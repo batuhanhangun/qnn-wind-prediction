@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{QNN circuits: gate counts by type, depth, and parameter counts. QNN-1 and QNN-5 implement the same unitary. QNN-1u to QNN-6u use the circuits of QNN-1 to QNN-6.}
+\label{tab:t2}
+\begin{tabular}{llrrrrrrrr}
+\toprule
+Config & Entanglement & H & P & RY & CX & Total & Depth & Inputs & Weights \\
+\midrule
+QNN-1 & full & 8 & 8 & 12 & 12 & 40 & 16 & 4 & 12 \\
+QNN-2 & linear & 8 & 8 & 12 & 6 & 34 & 12 & 4 & 12 \\
+QNN-3 & circular & 8 & 8 & 12 & 8 & 36 & 15 & 4 & 12 \\
+QNN-4 & sca & 8 & 8 & 12 & 8 & 36 & 15 & 4 & 12 \\
+QNN-5 & reverse\_linear & 8 & 8 & 12 & 6 & 34 & 12 & 4 & 12 \\
+QNN-6 & pairwise & 8 & 8 & 12 & 6 & 34 & 11 & 4 & 12 \\
+\bottomrule
+\end{tabular}
+\end{table}

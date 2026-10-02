@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{QNN stability score on the training loss over evaluations 1 to 50 (SD and MS over evaluations 11 to 50); lower SC is more stable. Padded: runs that converged before evaluation 50 (curve padded with the final loss). SC is normalized and ranked within each readout, because the MSE scales differ.}
+\label{tab:t4}
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+Readout & Config & SD & MS & FL & SD$_n$ & MS$_n$ & FL$_n$ & SC & Rank & Padded \\
+\midrule
+{[-1, 1]} & QNN-1 & 0.008 & 0.022 & 0.090 & 0.000 & 0.000 & 0.000 & 0.000 & 1 & 0 \\
+{[-1, 1]} & QNN-5 & 0.008 & 0.022 & 0.090 & 0.000 & 0.000 & 0.000 & 0.000 & 1 & 0 \\
+{[-1, 1]} & QNN-4 & 0.015 & 0.068 & 0.110 & 0.311 & 0.334 & 0.603 & 1.249 & 3 & 0 \\
+{[-1, 1]} & QNN-2 & 0.015 & 0.066 & 0.124 & 0.294 & 0.314 & 1.000 & 1.608 & 4 & 0 \\
+{[-1, 1]} & QNN-6 & 0.023 & 0.101 & 0.112 & 0.600 & 0.569 & 0.660 & 1.829 & 5 & 0 \\
+{[-1, 1]} & QNN-3 & 0.032 & 0.161 & 0.100 & 1.000 & 1.000 & 0.292 & 2.292 & 6 & 0 \\
+\midrule
+{[0, 1]} & QNN-3u & 0.003 & 0.009 & 0.009 & 0.155 & 0.089 & 0.000 & 0.244 & 1 & 0 \\
+{[0, 1]} & QNN-1u & 0.003 & 0.013 & 0.010 & 0.222 & 0.191 & 0.160 & 0.574 & 2 & 0 \\
+{[0, 1]} & QNN-5u & 0.003 & 0.013 & 0.010 & 0.222 & 0.191 & 0.160 & 0.574 & 2 & 0 \\
+{[0, 1]} & QNN-6u & 0.002 & 0.005 & 0.011 & 0.000 & 0.000 & 0.720 & 0.720 & 4 & 0 \\
+{[0, 1]} & QNN-4u & 0.007 & 0.038 & 0.010 & 0.809 & 0.858 & 0.447 & 2.114 & 5 & 0 \\
+{[0, 1]} & QNN-2u & 0.009 & 0.043 & 0.011 & 1.000 & 1.000 & 1.000 & 3.000 & 6 & 0 \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize QNN-1 and QNN-5 implement the same unitary, and so do QNN-1u and QNN-5u: the accuracy results within each pair are identical by construction; the members of a pair differ only in circuit cost (T2, T5). QNN-1u to QNN-6u use the circuits of QNN-1 to QNN-6 with the target min-max scaled to [0, 1] instead of [-1, 1].}
+\end{table}

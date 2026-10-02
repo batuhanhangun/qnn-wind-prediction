@@ -1,0 +1,32 @@
+# End-to-end smoke test: fold 5, N = 100 from the seed-0
+# permutation, 3 iterations, 2 Optuna trials, 1 seed, every model.
+# Every key not set here is inherited from `base`.
+base: experiment.yaml
+
+paths:
+  results: ${QNNWIND_SCRATCH:-.}/results/smoke
+  logs: ${QNNWIND_SCRATCH:-.}/logs/smoke
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks/smoke
+
+folds:
+  run: [5]
+
+sizes: [100]
+seeds: [0]
+
+qnn:
+  optimizer:
+    maxiter: 3
+
+mlp_pm:
+  optimizer:
+    maxiter: 3
+
+deep:
+  max_epochs: 3
+
+tuning:
+  n_trials: 2
+
+runtime:
+  workers: 1

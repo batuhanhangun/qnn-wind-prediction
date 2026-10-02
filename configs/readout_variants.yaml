@@ -1,0 +1,15 @@
+# Readout variants QNN-1u to QNN-6u, shared by blocked_unit.yaml, random.yaml, and
+# quick.yaml. Everything not set here is inherited from experiment.yaml.
+base: experiment.yaml
+
+qnn:
+  # Readout variants: the circuit of the base configuration, with the target min-max scaled
+  # to [0, 1] instead of [-1, 1] (and the matching inverse transform to kW). Everything else
+  # (circuit, observable, optimizer, initialization, seeds, subsets, selection) is unchanged.
+  variants:
+    QNN-1u: {base: QNN-1, target_range: [0.0, 1.0]}
+    QNN-2u: {base: QNN-2, target_range: [0.0, 1.0]}
+    QNN-3u: {base: QNN-3, target_range: [0.0, 1.0]}
+    QNN-4u: {base: QNN-4, target_range: [0.0, 1.0]}
+    QNN-5u: {base: QNN-5, target_range: [0.0, 1.0]}
+    QNN-6u: {base: QNN-6, target_range: [0.0, 1.0]}

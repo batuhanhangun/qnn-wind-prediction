@@ -1,0 +1,31 @@
+# Smoke test of the blocked_unit config: fold 5, N = 100, 3
+# iterations, 2 Optuna trials, 1 seed, every model of the batch.
+base: blocked_unit.yaml
+
+paths:
+  results: ${QNNWIND_SCRATCH:-.}/results/smoke_blocked_unit
+  logs: ${QNNWIND_SCRATCH:-.}/logs/smoke_blocked_unit
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks/smoke_blocked_unit
+
+folds:
+  run: [5]
+
+sizes: [100]
+seeds: [0]
+
+qnn:
+  optimizer:
+    maxiter: 3
+
+mlp_pm:
+  optimizer:
+    maxiter: 3
+
+deep:
+  max_epochs: 3
+
+tuning:
+  n_trials: 2
+
+runtime:
+  workers: 1

@@ -1,0 +1,37 @@
+[project]
+name = "qnnwind"
+version = "0.1.0"
+description = "Quantum neural networks vs. classical models for wind power prediction"
+requires-python = ">=3.11,<3.12"
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]
+addopts = "-ra"
+filterwarnings = [
+    "error::DeprecationWarning",
+    "error::PendingDeprecationWarning",
+    "error::FutureWarning",
+]
+# The SciPy `iprint` DeprecationWarning is deliberately not ignored here:
+# the library filters that one message itself, and the tests check that it does.
+
+[tool.ruff.lint.isort]
+known-first-party = ["qnnwind"]
+known-local-folder = ["conftest"]
+
+[tool.ruff.lint.per-file-ignores]
+# The summary report is built from long markdown f-strings.
+"scripts/analyze.py" = ["E501"]

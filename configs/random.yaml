@@ -1,0 +1,17 @@
+# Random K-fold protocol: one fixed random partition into six test folds, random validation
+# blocks, no buffers; everything else as in the blocked protocol.
+# Tuning (216 studies), the 11 classical models (1320 runs), QNN-1 to QNN-6 and QNN-1u to
+# QNN-6u (1440 runs).
+base: readout_variants.yaml
+
+protocol: random
+random_split:
+  partition_seed: 20260928   # validation of fold k: partition_seed + k
+
+paths:
+  results: ${QNNWIND_SCRATCH:-.}/results/random
+  logs: ${QNNWIND_SCRATCH:-.}/logs/random
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks/random
+
+models:
+  qnn: [QNN-1, QNN-2, QNN-3, QNN-4, QNN-5, QNN-6, QNN-1u, QNN-2u, QNN-3u, QNN-4u, QNN-5u, QNN-6u]

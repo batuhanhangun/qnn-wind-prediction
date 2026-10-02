@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: environment/*.txt
+
+      - name: Virtual environment (as in the README)
+        run: |
+          python -m venv .venv
+          if [ "$RUNNER_OS" = "Windows" ]; then py=.venv/Scripts/python.exe; else py=.venv/bin/python; fi
+          echo "PY=$py" >> "$GITHUB_ENV"   # every step runs in the workspace
+
+      - name: Install (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          "$PY" -m pip install --no-deps --index-url https://download.pytorch.org/whl/cpu torch==2.5.1+cpu
+          "$PY" -m pip install -c environment/constraints-local-linux.txt -r environment/requirements-local.txt -r environment/requirements-extra.txt torch==2.5.1+cpu
+
+      - name: Install (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          "$PY" -m pip install --no-deps --index-url https://download.pytorch.org/whl/cpu torch==2.5.1+cpu
+          "$PY" -m pip install -c environment/constraints-local-win.txt -r environment/requirements-local.txt -r environment/requirements-extra.txt torch==2.5.1+cpu
+
+      - name: Install (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install libomp
+          "$PY" -m pip install -c environment/constraints-local-macos.txt -r environment/requirements-local.txt -r environment/requirements-extra.txt torch==2.5.1
+
+      - name: Environment check
+        run: |
+          "$PY" -m pip check
+          "$PY" scripts/check_env.py
+
+      - name: Lint
+        run: |
+          "$PY" -m ruff check src scripts tests
+          "$PY" -m ruff format --check src scripts tests
+
+      - name: Tests (without the dataset; tests that need it are skipped)
+        run: |
+          "$PY" -m pytest
+
+      - name: Provenance
+        run: |
+          "$PY" scripts/verify_provenance.py
+
+      - name: Level 1 (tables and figures from the results package)
+        run: |
+          "$PY" scripts/reproduce_paper.py
+
+      - name: Smoke grid on a synthetic dataset
+        run: |
+          "$PY" scripts/make_synthetic_dataset.py
+          "$PY" scripts/run_grid.py --config runs/synthetic/smoke_synthetic.yaml
+
+      - name: Upload outputs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs-${{ matrix.os }}
+          path: |
+            runs/paper
+            runs/logs
+          if-no-files-found: ignore

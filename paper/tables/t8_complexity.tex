@@ -1,0 +1,36 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Trainable parameter counts and, for tree and kernel models, complexity measures at N = 3000: mean over runs (range in parentheses when it varies).}
+\label{tab:t8}
+\begin{tabular}{lrl}
+\toprule
+Model & Trainable parameters & Complexity measure (not parameters) \\
+\midrule
+LR & 5 & -- \\
+kNN & 0 & stored samples 3000 \\
+DTR & -- & nodes 191 (7--403); leaves 96 (4--202) \\
+SVR & 2525 (2072--2855) & support vectors 2524 (2071--2854) \\
+XGBoost & -- & nodes 4419 (1277--7036); leaves 2448 (730--3916) \\
+LightGBM & -- & nodes 4644 (1091--10951); leaves 2414 (558--5629) \\
+MLP & 5596 (369--17281) & -- \\
+LSTM & 9268 (1745--19073) & -- \\
+GRU & 4300 (1329--10465) & -- \\
+Transformer & 49468 (8865--67585) & -- \\
+MLP-PM & 13 & -- \\
+QNN-1 & 12 & -- \\
+QNN-2 & 12 & -- \\
+QNN-3 & 12 & -- \\
+QNN-4 & 12 & -- \\
+QNN-5 & 12 & -- \\
+QNN-6 & 12 & -- \\
+QNN-1u & 12 & -- \\
+QNN-2u & 12 & -- \\
+QNN-3u & 12 & -- \\
+QNN-4u & 12 & -- \\
+QNN-5u & 12 & -- \\
+QNN-6u & 12 & -- \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize Trainable parameters are fitted scalar values. SVR: the dual coefficients (one per support vector) plus the intercept; the support vectors themselves are stored training samples and are listed as a complexity measure, like the stored samples of kNN (0 trainable parameters). Tree models have no parameter count; their node and leaf counts are complexity measures. F5 plots the trainable-parameter count and omits the models without one (tree models and kNN). QNN-1 and QNN-5 implement the same unitary, and so do QNN-1u and QNN-5u: the accuracy results within each pair are identical by construction; the members of a pair differ only in circuit cost (T2, T5). QNN-1u to QNN-6u use the circuits of QNN-1 to QNN-6 with the target min-max scaled to [0, 1] instead of [-1, 1].}
+\end{table}

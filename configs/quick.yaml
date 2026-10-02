@@ -1,0 +1,32 @@
+# Quick benchmark: a small part of the full grid that shows the main effects in about one hour
+# on an 8-core PC. Blocked protocol, N = 750, one seed, two folds, 10 Optuna trials per
+# study, at most 60 L-BFGS-B iterations per QNN run; every classical and deep model, MLP-PM,
+# QNN-3 (target scaled to [-1, 1]), and QNN-3u and QNN-5u (target scaled to [0, 1]).
+# Everything else is as in the full experiment.
+#
+#   python scripts/run_grid.py --config configs/quick.yaml
+base: readout_variants.yaml
+
+paths:
+  results: ${QNNWIND_SCRATCH:-.}/results/quick
+  logs: ${QNNWIND_SCRATCH:-.}/logs/quick
+  tasks: ${QNNWIND_SCRATCH:-.}/tasks/quick
+
+folds:
+  run: [1, 4]
+
+sizes: [750]
+seeds: [0]
+
+models:
+  classical: [LR, kNN, DTR, SVR, XGBoost, LightGBM]
+  deep: [MLP, LSTM, GRU, Transformer]
+  mlp_pm: [MLP-PM]
+  qnn: [QNN-3, QNN-3u, QNN-5u]
+
+qnn:
+  optimizer:
+    maxiter: 60
+
+tuning:
+  n_trials: 10
